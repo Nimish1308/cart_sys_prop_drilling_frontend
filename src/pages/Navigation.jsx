@@ -1,11 +1,16 @@
-import React from 'react'
-import { Link, Links } from 'react-router'
 
-const Navigation = ({cart}) => {
+import { Dropdown, Collapse, initMDB } from "mdb-ui-kit";
+import React, { useEffect } from 'react'
+import { Link, Links } from 'react-router'
+const Navigation = ({ cart }) => {
+    useEffect(() => {
+        // Initialize required components once on mount
+        initMDB({ Dropdown, Collapse });
+    }, []);
     return (
         <>
             {/* <!-- Navbar --> */}
-            <nav class="navbar navbar-expand-lg bg-body-tertiary" style={{position:'sticky',top:'0',zIndex:'10'}}>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style={{ position: 'sticky', top: '0', zIndex: '10' }}>
                 {/* <!-- Container wrapper --> */}
                 <div class="container-fluid">
                     {/* <!-- Toggle button --> */}
@@ -20,7 +25,7 @@ const Navigation = ({cart}) => {
                     >
                         <i class="fas fa-bars"></i>
                     </button>
-{/* 
+                    {/* 
                     <!-- Collapsible wrapper --> */}
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         {/* <!-- Navbar brand --> */}
@@ -35,7 +40,7 @@ const Navigation = ({cart}) => {
                         {/* <!-- Left links --> */}
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <Link to={`/`}  class="nav-link">Home</Link>
+                                <Link to={`/`} class="nav-link">Home</Link>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Team</a>
